@@ -1,14 +1,30 @@
-﻿// RestoreDefaultGenreTemplateList.cs // Author: art2m <art2m@live.com> //
-// Copyright (c) 2016 art2m // This program is free software: you can
-// redistribute it and/or modify it under the terms of the GNU General Public
-// License as published by the Free Software Foundation, either version 3 of the
-// License, or (at your option) any later version. // This program is distributed
-// in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
-// implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
-// the GNU General Public License for more details. // You should have received a
-// copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+﻿// MusicManagerCurrent
+// 
+// RestoreDefaultGenreTemplateList.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System.Reflection;
+using MusicManagerCurrent.ClassesProperties;
+using MusicManagerCurrent.Collections;
 
 namespace MusicManagerCurrent.Classes
 {
@@ -19,60 +35,9 @@ namespace MusicManagerCurrent.Classes
     /// </summary>
     public static class RestoreDefaultGenreTemplateList
     {
-        #region Methods Public
-
         /// <summary>
-        ///     Fills the genre template list collection with default genre directories.
-        /// </summary>
-        public static void FillGenreTemplateListCollection()
-        {
-            MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
-
-            GenreDefaultListCollection.ClearCollection();
-            GenreDefaultListCollection.AddItem("#");
-            GenreDefaultListCollection.AddItem(Bigbands);
-            GenreDefaultListCollection.AddItem(Bluegrass);
-            GenreDefaultListCollection.AddItem(Blues);
-            GenreDefaultListCollection.AddItem(Cajun);
-            GenreDefaultListCollection.AddItem(Calypso);
-            GenreDefaultListCollection.AddItem(Caribbean);
-            GenreDefaultListCollection.AddItem(Celtic);
-            GenreDefaultListCollection.AddItem(Children);
-            GenreDefaultListCollection.AddItem(Classical);
-            GenreDefaultListCollection.AddItem(Country);
-            GenreDefaultListCollection.AddItem(Dance);
-            GenreDefaultListCollection.AddItem(EasyListening);
-            GenreDefaultListCollection.AddItem(Finnish);
-            GenreDefaultListCollection.AddItem(HipHop);
-            GenreDefaultListCollection.AddItem(Holiday);
-            GenreDefaultListCollection.AddItem(Insperational);
-            GenreDefaultListCollection.AddItem(Instrumental);
-            GenreDefaultListCollection.AddItem(Irish);
-            GenreDefaultListCollection.AddItem(Japan);
-            GenreDefaultListCollection.AddItem(Jazz);
-            GenreDefaultListCollection.AddItem(Latin);
-            GenreDefaultListCollection.AddItem(NewAge);
-            GenreDefaultListCollection.AddItem(Opera);
-            GenreDefaultListCollection.AddItem(Polka);
-            GenreDefaultListCollection.AddItem(Pop);
-            GenreDefaultListCollection.AddItem(Rap);
-            GenreDefaultListCollection.AddItem(RB);
-            GenreDefaultListCollection.AddItem(Reggae);
-            GenreDefaultListCollection.AddItem(Rock);
-            GenreDefaultListCollection.AddItem(Soul);
-            GenreDefaultListCollection.AddItem(SoundTrack);
-            GenreDefaultListCollection.AddItem(SouthAmerica);
-            GenreDefaultListCollection.AddItem(Vocals);
-            GenreDefaultListCollection.AddItem(WorkOut);
-        }
-
-        #endregion Methods Public
-
-        #region Fields
-
-        /// <summary>
-        /// Needs to be first item in the file when restoring new file.
-        /// Validates that this is the file needed.
+        ///     Needs to be first item in the file when restoring new file.
+        ///     Validates that this is the file needed.
         /// </summary>
         private const string FileHeader = "#";
 
@@ -246,6 +211,49 @@ namespace MusicManagerCurrent.Classes
         /// </summary>
         private const string WorkOut = "Various-Workout";
 
-        #endregion Fields
+        /// <summary>
+        ///     Fills the genre template list collection with default genre directories.
+        /// </summary>
+        public static void FillGenreTemplateListCollection()
+        {
+            MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
+
+            GenreDefaultListCollection.ClearCollection();
+            GenreDefaultListCollection.AddItem("#");
+            GenreDefaultListCollection.AddItem(Bigbands);
+            GenreDefaultListCollection.AddItem(Bluegrass);
+            GenreDefaultListCollection.AddItem(Blues);
+            GenreDefaultListCollection.AddItem(Cajun);
+            GenreDefaultListCollection.AddItem(Calypso);
+            GenreDefaultListCollection.AddItem(Caribbean);
+            GenreDefaultListCollection.AddItem(Celtic);
+            GenreDefaultListCollection.AddItem(Children);
+            GenreDefaultListCollection.AddItem(Classical);
+            GenreDefaultListCollection.AddItem(Country);
+            GenreDefaultListCollection.AddItem(Dance);
+            GenreDefaultListCollection.AddItem(EasyListening);
+            GenreDefaultListCollection.AddItem(Finnish);
+            GenreDefaultListCollection.AddItem(HipHop);
+            GenreDefaultListCollection.AddItem(Holiday);
+            GenreDefaultListCollection.AddItem(Insperational);
+            GenreDefaultListCollection.AddItem(Instrumental);
+            GenreDefaultListCollection.AddItem(Irish);
+            GenreDefaultListCollection.AddItem(Japan);
+            GenreDefaultListCollection.AddItem(Jazz);
+            GenreDefaultListCollection.AddItem(Latin);
+            GenreDefaultListCollection.AddItem(NewAge);
+            GenreDefaultListCollection.AddItem(Opera);
+            GenreDefaultListCollection.AddItem(Polka);
+            GenreDefaultListCollection.AddItem(Pop);
+            GenreDefaultListCollection.AddItem(Rap);
+            GenreDefaultListCollection.AddItem(RB);
+            GenreDefaultListCollection.AddItem(Reggae);
+            GenreDefaultListCollection.AddItem(Rock);
+            GenreDefaultListCollection.AddItem(Soul);
+            GenreDefaultListCollection.AddItem(SoundTrack);
+            GenreDefaultListCollection.AddItem(SouthAmerica);
+            GenreDefaultListCollection.AddItem(Vocals);
+            GenreDefaultListCollection.AddItem(WorkOut);
+        }
     }
 }

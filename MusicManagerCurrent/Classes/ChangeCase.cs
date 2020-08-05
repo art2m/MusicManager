@@ -1,37 +1,44 @@
-﻿#region copyright
-
-// Copyright (c) 2016 art2m Author: art2m <art2m@live.com>
-//
-// This program is free software: you can redistribute it and/or modify it under
-// the terms of the GNU General Public License as published by the Free Software
-// Foundation, either version 3 of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along with
-// this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion copyright
+﻿// MusicManagerCurrent
+// 
+// ChangeCase.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using MusicManagerCurrent.ClassesProperties;
+using MusicManagerCurrent.Collections;
 
 namespace MusicManagerCurrent.Classes
 {
     /// <summary>
-    /// Change the case of genre, artist, album directory names and song title.
+    ///     Change the case of genre, artist, album directory names and song title.
     /// </summary>
     public class ChangeCase
     {
-        #region METHODS PUBLIC
-
         /// <summary>
-        /// Change Directory name to all lower case characters.
+        ///     Change Directory name to all lower case characters.
         /// </summary>
         /// <param name="dirName"></param>
         /// <returns>New lower case directory path.</returns>
@@ -42,10 +49,7 @@ namespace MusicManagerCurrent.Classes
             {
                 MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
-                if (string.IsNullOrEmpty(dirName))
-                {
-                    throw new ArgumentNullException();
-                }
+                if (string.IsNullOrEmpty(dirName)) throw new ArgumentNullException();
 
                 dirName = dirName.Trim();
 
@@ -72,10 +76,10 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Create Make Proper name from current directory name.
+        ///     Create Make Proper name from current directory name.
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if make proper case name was directory, <c>false</c> otherwise.
+        ///     <c>true</c>, if make proper case name was directory, <c>false</c> otherwise.
         /// </returns>
         /// <param name="dirName">Directory path.</param>
         /// <exception cref="DirectoryNotFoundException"></exception>
@@ -88,10 +92,7 @@ namespace MusicManagerCurrent.Classes
 
                 dirName = dirName.Trim();
 
-                if (string.IsNullOrEmpty(dirName))
-                {
-                    throw new ArgumentNullException();
-                }
+                if (string.IsNullOrEmpty(dirName)) throw new ArgumentNullException();
 
                 string newDirPath;
                 var parentDirName = new DirectoryInfo(dirName).Parent.FullName;
@@ -146,10 +147,10 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Make directory name upper case.
+        ///     Make directory name upper case.
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if make upper case name was directory, <c>false</c> otherwise.
+        ///     <c>true</c>, if make upper case name was directory, <c>false</c> otherwise.
         /// </returns>
         /// <param name="dirName">Directory path.</param>
         /// <exception cref="DirectoryNotFoundException"></exception>
@@ -162,10 +163,7 @@ namespace MusicManagerCurrent.Classes
 
                 dirName = dirName.Trim();
 
-                if (string.IsNullOrEmpty(dirName))
-                {
-                    throw new ArgumentNullException();
-                }
+                if (string.IsNullOrEmpty(dirName)) throw new ArgumentNullException();
 
                 var parentDirName = new DirectoryInfo(dirName).Parent.FullName;
                 var origDirName = new DirectoryInfo(dirName).Name;
@@ -199,7 +197,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Files the name of the name make lower case.
+        ///     Files the name of the name make lower case.
         /// </summary>
         /// <param name="songTitle">File path.</param>
         /// <exception cref="ArgumentNullException"></exception>
@@ -211,10 +209,7 @@ namespace MusicManagerCurrent.Classes
 
                 songTitle = songTitle.Trim();
 
-                if (string.IsNullOrEmpty(songTitle))
-                {
-                    throw new ArgumentNullException();
-                }
+                if (string.IsNullOrEmpty(songTitle)) throw new ArgumentNullException();
 
                 var newSongTitle = songTitle.ToLowerInvariant();
 
@@ -237,7 +232,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Files the name of the name make proper case.
+        ///     Files the name of the name make proper case.
         /// </summary>
         /// <param name="songTitle">File path.</param>
         /// <exception cref="ArgumentNullException"></exception>
@@ -248,10 +243,7 @@ namespace MusicManagerCurrent.Classes
 
             songTitle = songTitle.Trim();
 
-            if (string.IsNullOrEmpty(songTitle))
-            {
-                throw new ArgumentNullException();
-            }
+            if (string.IsNullOrEmpty(songTitle)) throw new ArgumentNullException();
 
             var arrayTitle = songTitle.Split(' ');
 
@@ -261,38 +253,34 @@ namespace MusicManagerCurrent.Classes
             var builder = new StringBuilder();
             builder.Append(newSongTitle);
 
-            foreach (string word in arrayTitle)
+            foreach (var word in arrayTitle)
             {
                 var wordSpace = word + " ";
 
                 var wordCount = 0;
 
-                foreach (char chrLetter in wordSpace)
+                foreach (var chrLetter in wordSpace)
                 {
                     if (wordCount == 0 && char.IsLetter(chrLetter))
-                    {
                         sb.Append(chrLetter.ToString().ToUpper());
-                    }
                     else if (char.IsWhiteSpace(chrLetter))
-                    {
                         sb.Append(" ");
-                    }
                     else
-                    {
                         sb.Append(chrLetter.ToString().ToLower());
-                    }
                     wordCount++;
                 }
+
                 builder.Append(sb + string.Empty);
                 sb.Clear();
             }
+
             newSongTitle = builder.ToString();
 
             return newSongTitle;
         }
 
         /// <summary>
-        /// File Make upper case Name.
+        ///     File Make upper case Name.
         /// </summary>
         /// <param name="songTitle">File path.</param>
         /// <exception cref="FileNotFoundException"></exception>
@@ -305,10 +293,7 @@ namespace MusicManagerCurrent.Classes
 
                 songTitle = songTitle.Trim();
 
-                if (string.IsNullOrEmpty(songTitle))
-                {
-                    throw new ArgumentNullException();
-                }
+                if (string.IsNullOrEmpty(songTitle)) throw new ArgumentNullException();
 
                 var parentDirPath = new FileInfo(songTitle).DirectoryName;
                 var origFileName = Path.GetFileName(songTitle);
@@ -330,6 +315,7 @@ namespace MusicManagerCurrent.Classes
                 {
                     newDirPath = string.Empty;
                 }
+
                 return newDirPath;
             }
             catch (ArgumentNullException ex)
@@ -354,7 +340,5 @@ namespace MusicManagerCurrent.Classes
                 return string.Empty;
             }
         }
-
-        #endregion METHODS PUBLIC
     }
 }

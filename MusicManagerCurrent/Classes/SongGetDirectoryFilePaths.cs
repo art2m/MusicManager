@@ -1,42 +1,49 @@
-﻿#region copyright
-
-// Copyright (c) 2016 art2m Author: art2m <art2m@live.com>
-//
-// This program is free software: you can redistribute it and/or modify it under
-// the terms of the GNU General Public License as published by the Free Software
-// Foundation, either version 3 of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along with
-// this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion copyright
+﻿// MusicManagerCurrent
+// 
+// SongGetDirectoryFilePaths.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using MusicManagerCurrent.ClassesProperties;
+using MusicManagerCurrent.Collections;
 
 namespace MusicManagerCurrent.Classes
 {
     /// <summary>
-    /// public class SongFilePaths Loop all Genre Song file paths.
+    ///     public class SongFilePaths Loop all Genre Song file paths.
     /// </summary>
     public class SongGetDirectoryFilePaths
     {
-        #region Methods Public
-
         /// <summary>
-        /// Check for album subdirectories in the artist directories. If there
-        /// are none then this is not a artist directory but a multi artist album.
+        ///     Check for album subdirectories in the artist directories. If there
+        ///     are none then this is not a artist directory but a multi artist album.
         /// </summary>
         /// <param name="artistDirPath"></param>
         /// <returns>
-        /// 0 = error, 1 = album is in artist position, 2 album is contained in
-        /// artist directory.
+        ///     0 = error, 1 = album is in artist position, 2 album is contained in
+        ///     artist directory.
         /// </returns>
         public static int CheckForAlbumDirectories(string artistDirPath)
         {
@@ -51,6 +58,7 @@ namespace MusicManagerCurrent.Classes
                 MyMessages.ErrorMessage = "The artist directory path is invalid.";
                 MyMessages.ShowErrorMessage(MyMessages.ErrorMessage, MyMessages.NameOfMethod);
             }
+
             var albums = new List<string>();
 
             Debug.Assert(artistDirPath != null, "artistDirPath != null");
@@ -61,22 +69,19 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Fills the collection with songs.
+        ///     Fills the collection with songs.
         /// </summary>
         /// <param name="files">array of song paths.</param>
         public static void FillCollectionWithSongs(List<string> files)
         {
             MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
-            foreach (var songPath in files)
-            {
-                SongsCollection.AddItem(songPath);
-            }
+            foreach (var songPath in files) SongsCollection.AddItem(songPath);
         }
 
         /// <summary>
-        /// Check to make sure there are song files located in the directory or
-        /// subdirectory of the dirPath.
+        ///     Check to make sure there are song files located in the directory or
+        ///     subdirectory of the dirPath.
         /// </summary>
         /// <param name="dirPath"></param>
         /// <returns>True if song files are found else false.</returns>
@@ -96,7 +101,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Get all albums contained in a artist directory path and return list.
+        ///     Get all albums contained in a artist directory path and return list.
         /// </summary>
         /// <param name="artistDirPath"></param>
         /// <returns>List of album directories.</returns>
@@ -132,8 +137,8 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Get all Genre directories from music directory. 
-        /// Add all Genre directories found to genreDirectoriesCollection. 
+        ///     Get all Genre directories from music directory.
+        ///     Add all Genre directories found to genreDirectoriesCollection.
         /// </summary>
         public void GetAllGenreDirectories(string musicDirPath)
         {
@@ -148,14 +153,14 @@ namespace MusicManagerCurrent.Classes
             Debug.Assert(musicDirPath != null, "musicDirPath != null");
             var geneDirectories = new List<string>(
                 Directory.EnumerateDirectories(musicDirPath, "*", SearchOption.TopDirectoryOnly));
-            
+
             GenreDirectoryNamesUsersCollection.ClearCollection();
-            
+
             if (geneDirectories.Count <= 0) return;
             foreach (var genrePath in geneDirectories)
             {
                 GenreDirectoriesCollection.AddItem(genrePath);
-                
+
                 var itemPath = PathOperations.ReverseString(genrePath);
 
                 var genreName = PathOperations.GetNameBeforeFirstSeparator(itemPath);
@@ -163,19 +168,17 @@ namespace MusicManagerCurrent.Classes
                 genreName = PathOperations.ReverseString(genreName);
 
                 // check and make sure this is a valid genre directory name. There could be other directory
-                // types. 
+                // types.
                 if (ValidateOperations.ValidateFormatGenreDirectoryName(genreName))
                 {
                     GenreDirectoryNamesUsersCollection.AddItem(genreName);
                     GenreFileReadWrite.WriteGenreUsersList();
                 }
-                
-                
             }
         }
 
         /// <summary>
-        /// Get the albums contained in an artist directory.
+        ///     Get the albums contained in an artist directory.
         /// </summary>
         /// <param name="artistDirPath">The path to the artist directory</param>
         public void GetAllAlbumDirectories(string artistDirPath)
@@ -207,7 +210,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Get all songs contained in the album. Return a list with all songs.
+        ///     Get all songs contained in the album. Return a list with all songs.
         /// </summary>
         /// <param name="albumPath">Path to album.</param>
         /// <returns></returns>
@@ -228,7 +231,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Retrieve all artist directories in users music collection.
+        ///     Retrieve all artist directories in users music collection.
         /// </summary>
         /// <param name="genreDirPath">Path to the genre directory.</param>
         public void GetAllArtistDirectories(string genreDirPath)
@@ -263,7 +266,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Loads the songs.
+        ///     Loads the songs.
         /// </summary>
         /// <returns>True if collection fills OK else false.</returns>
         /// <param name="directoryPath">Top directory path.</param>
@@ -285,7 +288,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Get All artist directories for this genre music return them in a list collection.
+        ///     Get All artist directories for this genre music return them in a list collection.
         /// </summary>
         /// <param name="genreDirPath"></param>
         /// <returns></returns>
@@ -319,7 +322,5 @@ namespace MusicManagerCurrent.Classes
 
             return artists;
         }
-
-        #endregion Methods Public
     }
 }

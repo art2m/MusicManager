@@ -1,47 +1,46 @@
-#region Copyright
-
-// ChangeCase.cs
-//
-// Author: art2m <art2m@live.com>
-//
-// Copyright (c) 2011 art2m
-//
-// This program is free software: you can redistribute it and/or modify it under
-// the terms of the GNU General Public License as published by the Free Software
-// Foundation, either version 3 of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along with
-// this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion Copyright
+// MusicManagerCurrent
+// 
+// SongsCollection.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System.Collections.Generic;
+using MusicManagerCurrent.Classes;
+using MusicManagerCurrent.ClassesProperties;
 
-namespace MusicManager.Classes.Collections
+namespace MusicManagerCurrent.Collections
 {
     /// <summary>
-    /// Holds Songs by artist directory, album directory, genre directory or all
-    /// songs in music directory.
+    ///     Holds Songs by artist directory, album directory, genre directory or all
+    ///     songs in music directory.
     /// </summary>
     public static class SongsCollection
     {
-        #region Fields
-
         /// <summary>
-        /// The songs list.
+        ///     The songs list.
         /// </summary>
         private static readonly List<string> SongsList = new List<string>();
 
-        #endregion Fields
-
-        #region Method Public
-
         /// <summary>
-        /// Add song path to the collection.
+        ///     Add song path to the collection.
         /// </summary>
         /// <param name="songPath">Location of file in music directory.</param>
         public static void AddItem(string songPath)
@@ -50,7 +49,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Clears the collection.
+        ///     Clears the collection.
         /// </summary>
         public static void ClearCollection()
         {
@@ -58,7 +57,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Check if song path is contained in the collection.
+        ///     Check if song path is contained in the collection.
         /// </summary>
         /// <returns>True if song path is found else false.</returns>
         /// <param name="songPath">Location of the song file.</param>
@@ -68,7 +67,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Gets all items contained in the collection.
+        ///     Gets all items contained in the collection.
         /// </summary>
         /// <returns>All items in collection.</returns>
         public static string[] GetAllItems()
@@ -78,10 +77,7 @@ namespace MusicManager.Classes.Collections
             var cnt = SongsList.Count;
 
             // No genre Folders Found
-            if (cnt - 1 < 1)
-            {
-                return sngPaths;
-            }
+            if (cnt - 1 < 1) return sngPaths;
 
             sngPaths = new string[cnt];
             for (var i = 0; i < cnt; i++) sngPaths[i] = SongsList[i];
@@ -91,7 +87,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Gets the item at index.
+        ///     Gets the item at index.
         /// </summary>
         /// <returns>Song file path.</returns>
         /// <param name="index">Index of item to get from collection.</param>
@@ -101,7 +97,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Gets the index of the item.
+        ///     Gets the index of the item.
         /// </summary>
         /// <returns>The item index.</returns>
         /// <param name="sngPath">The song file path.</param>
@@ -111,7 +107,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// The number of items in the collection.
+        ///     The number of items in the collection.
         /// </summary>
         /// <returns>The count.</returns>
         public static int ItemCount()
@@ -120,7 +116,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Removes song file path from the collection.
+        ///     Removes song file path from the collection.
         /// </summary>
         /// <returns>True if item removed else false.</returns>
         /// <param name="songPath">Song path.</param>
@@ -130,7 +126,7 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Removes the item at the specific index.
+        ///     Removes the item at the specific index.
         /// </summary>
         /// <returns>True if item is removed from the collection else false.</returns>
         /// <param name="index">Index of item to be remove.</param>
@@ -146,16 +142,14 @@ namespace MusicManager.Classes.Collections
         }
 
         /// <summary>
-        /// Sorts the collection.
+        ///     Sorts the collection.
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if collection was sorted, <c>false</c> otherwise.
+        ///     <c>true</c>, if collection was sorted, <c>false</c> otherwise.
         /// </returns>
         public static void SortCollection()
         {
             SongsList.Sort();
         }
-
-        #endregion Method Public
     }
 }

@@ -1,43 +1,47 @@
-﻿#region copyright
-
-// Copyright (c) 2016 art2m Author: art2m <art2m@live.com>
-//
-// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
-// License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
-// later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
-// implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-// more details.
-//
-// You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion copyright
+﻿// MusicManagerCurrent
+// 
+// NewDirectoryFileNameCollection.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using MusicManagerCurrent.Classes;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Collections
 {
     /// <summary>
-    /// Holds the new directory names user has created.
+    ///     Holds the new directory names user has created.
     /// </summary>
     public static class NewDirectoryFileNameCollection
     {
-        #region GLOBAL VARIABLES
-
         /// <summary>
-        /// List array to hold all the songs contained in Vocal music collection.
+        ///     List array to hold all the songs contained in Vocal music collection.
         /// </summary>
         private static readonly List<string> fileDirName = new List<string>();
 
-        #endregion GLOBAL VARIABLES
-
-        #region METHODS PUBLIC
-
         /// <summary>
-        /// Add the new path.
+        ///     Add the new path.
         /// </summary>
         /// <param name="newPath"></param>
         public static void AddItem(string newPath)
@@ -65,7 +69,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// public static void ClearCollection() Clears the array.
+        ///     public static void ClearCollection() Clears the array.
         /// </summary>
         public static void ClearCollection()
         {
@@ -85,7 +89,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Check if item contained in the collection.
+        ///     Check if item contained in the collection.
         /// </summary>
         /// <param name="newPath"></param>
         /// <returns>True if found else false.</returns>
@@ -122,7 +126,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets all items.
+        ///     Gets all items.
         /// </summary>
         /// <returns>The all items.</returns>
         public static string[] GetAllItems()
@@ -136,17 +140,11 @@ namespace MusicManagerCurrent.Collections
                 var cnt = fileDirName.Count;
 
                 // No genre Folders Found
-                if ((cnt - 1) < 1)
-                {
-                    return origPath;
-                }
+                if (cnt - 1 < 1) return origPath;
 
                 origPath = new string[cnt];
 
-                for (int i = 0; i < cnt; i++)
-                {
-                    origPath[i] = fileDirName[i];
-                }
+                for (var i = 0; i < cnt; i++) origPath[i] = fileDirName[i];
 
                 // All OK.
                 return origPath;
@@ -170,9 +168,9 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets the item at index.
+        ///     Gets the item at index.
         /// </summary>
-        /// <returns>The <see cref="System.String"/>.</returns>
+        /// <returns>The <see cref="System.String" />.</returns>
         /// <param name="index">Index.</param>
         public static string GetItemAt(int index)
         {
@@ -194,7 +192,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Get new path index.
+        ///     Get new path index.
         /// </summary>
         /// <param name="newPath"></param>
         /// <returns>Returns the index of new path.</returns>
@@ -230,7 +228,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Items the count.
+        ///     Items the count.
         /// </summary>
         /// <returns>The count.</returns>
         public static int ItemsCount()
@@ -257,7 +255,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Remove new path.
+        ///     Remove new path.
         /// </summary>
         /// <param name="newPath"></param>
         /// <returns>True if new path removed else false.</returns>
@@ -293,9 +291,9 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Removes the item at index.
+        ///     Removes the item at index.
         /// </summary>
-        /// <returns>The <see cref="System.Boolean"/>.</returns>
+        /// <returns>The <see cref="System.Boolean" />.</returns>
         /// <param name="index">Index.</param>
         public static bool RemoveItemAt(int index)
         {
@@ -313,21 +311,19 @@ namespace MusicManagerCurrent.Collections
             }
             catch (IndexOutOfRangeException ex)
             {
-                MyMessages.ErrorMessage = "Encountered error removing item at index: " + index.ToString();
+                MyMessages.ErrorMessage = "Encountered error removing item at index: " + index;
                 MyMessages.BuildErrorString(MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage,
                     ex.Message);
                 return retVal;
             }
             catch (NullReferenceException ex)
             {
-                MyMessages.ErrorMessage = "Encountered error removing item at index: " + index.ToString();
+                MyMessages.ErrorMessage = "Encountered error removing item at index: " + index;
 
                 MyMessages.BuildErrorString(MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage,
                     ex.Message);
                 return retVal;
             }
         }
-
-        #endregion METHODS PUBLIC
     }
 }

@@ -1,35 +1,47 @@
-// clsSongsPathList.cs // Author: art2m <art2m@live.com> // Copyright (c) 2012 art2m // This program is free
-// software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published
-// by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. // This
-// program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
-// warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
-// details. // You should have received a copy of the GNU General Public License along with this program. If not,
-// see <http://www.gnu.org/licenses/>.
+// MusicManagerCurrent
+// 
+// OriginalSongPathsCollection.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using MusicManagerCurrent.Classes;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Collections
 {
     /// <summary>
-    /// Original song paths collection.
+    ///     Original song paths collection.
     /// </summary>
     public static class OriginalSongPathsCollection
     {
-        #region GLOBAL VARIABLES
-
         /// <summary>
-        /// The song paths.
+        ///     The song paths.
         /// </summary>
         private static readonly List<string> songPaths = new List<string>();
 
-        #endregion GLOBAL VARIABLES
-
-        #region METHODS PUBLIC
-
         /// <summary>
-        /// Adds the new item.
+        ///     Adds the new item.
         /// </summary>
         /// <returns><c>true</c>, if new item was added, <c>false</c> otherwise.</returns>
         /// <param name="songPath">String path.</param>
@@ -49,14 +61,16 @@ namespace MusicManagerCurrent.Collections
             }
             catch (ArgumentNullException ex)
             {
-                MyMessages.ErrorMessage = "Encountered error while adding new song path to this collection: " + songPath;
+                MyMessages.ErrorMessage =
+                    "Encountered error while adding new song path to this collection: " + songPath;
                 MyMessages.BuildErrorString(MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage,
                     ex.Message);
                 return bolRetVal;
             }
             catch (NullReferenceException ex)
             {
-                MyMessages.ErrorMessage = "Encountered error while adding new song path to this collection: " + songPath;
+                MyMessages.ErrorMessage =
+                    "Encountered error while adding new song path to this collection: " + songPath;
                 MyMessages.BuildErrorString(MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage,
                     ex.Message);
                 return bolRetVal;
@@ -64,7 +78,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Clears the collection.
+        ///     Clears the collection.
         /// </summary>
         public static void ClearCollection()
         {
@@ -84,7 +98,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Contains the item.
+        ///     Contains the item.
         /// </summary>
         /// <returns><c>true</c>, if item was contained, <c>false</c> otherwise.</returns>
         /// <param name="songPath">String path.</param>
@@ -119,7 +133,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets all items.
+        ///     Gets all items.
         /// </summary>
         /// <returns>The all items.</returns>
         public static string[] GetAllItems()
@@ -133,16 +147,10 @@ namespace MusicManagerCurrent.Collections
                 var intCnt = songPaths.Count;
 
                 // No genre Folders Found
-                if ((intCnt - 1) < 1)
-                {
-                    return origPaths;
-                }
+                if (intCnt - 1 < 1) return origPaths;
 
                 origPaths = new string[songPaths.Count];
-                for (int i = 0; i < intCnt; i++)
-                {
-                    origPaths[i] = songPaths[i];
-                }
+                for (var i = 0; i < intCnt; i++) origPaths[i] = songPaths[i];
 
                 // All OK.
                 return origPaths;
@@ -164,9 +172,9 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets the item at index.
+        ///     Gets the item at index.
         /// </summary>
-        /// <returns>The <see cref="T:System.String"/>.</returns>
+        /// <returns>The <see cref="T:System.String" />.</returns>
         /// <param name="index">Index of item to get.</param>
         public static string GetItemAt(int index)
         {
@@ -187,7 +195,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets the index of the item.
+        ///     Gets the index of the item.
         /// </summary>
         /// <returns>The item index.</returns>
         /// <param name="songPath">String path.</param>
@@ -221,7 +229,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Itemses the count.
+        ///     Itemses the count.
         /// </summary>
         /// <returns>The count.</returns>
         public static int ItemCount()
@@ -247,7 +255,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Removes the item.
+        ///     Removes the item.
         /// </summary>
         /// <returns><c>true</c>, if item was removed, <c>false</c> otherwise.</returns>
         /// <param name="songPath">String path.</param>
@@ -282,9 +290,9 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Removes the item at intIndex.
+        ///     Removes the item at intIndex.
         /// </summary>
-        /// <returns>The <see cref="T:System.Boolean"/>.</returns>
+        /// <returns>The <see cref="T:System.Boolean" />.</returns>
         /// <param name="intIndex">Int index.</param>
         public static bool RemoveItemAt(int intIndex)
         {
@@ -317,7 +325,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Sorts the collection.
+        ///     Sorts the collection.
         /// </summary>
         /// <returns><c>true</c>, if collection was sorted, <c>false</c> otherwise.</returns>
         public static bool SortCollection()
@@ -339,7 +347,5 @@ namespace MusicManagerCurrent.Collections
                 return bolRetVal;
             }
         }
-
-        #endregion METHODS PUBLIC
     }
 }

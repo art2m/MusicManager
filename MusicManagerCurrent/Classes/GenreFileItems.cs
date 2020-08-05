@@ -1,27 +1,30 @@
-﻿#region Copyright
-
+﻿// MusicManagerCurrent
+// 
 // GenreFileItems.cs
-//
-// Author: art2m <art2m@live.com>
-//
-// Copyright (c) 2011 art2m
-//
-// This program is free software: you can redistribute it and/or modify it under
-// the terms of the GNU General Public License as published by the Free Software
-// Foundation, either version 3 of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along with
-// this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion Copyright
-
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.Reflection;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Classes
 {
@@ -31,8 +34,6 @@ namespace MusicManagerCurrent.Classes
     /// </summary>
     public static class GenreFileItems
     {
-        #region Fields
-
         /// <summary>
         ///     The genre template list. The List of containing possible genre
         ///     directories that could be created.
@@ -51,11 +52,7 @@ namespace MusicManagerCurrent.Classes
         ///     The music manager directory. The directory which will contain the
         ///     Genre lists below. This directory is located in /.local.share
         /// </summary>
-        private const string MusicManagerDirectory = nameof(MusicManager);
-
-        #endregion Fields
-
-        #region Methods Public
+        private const string MusicManagerDirectory = nameof(MusicManagerCurrent);
 
         /// <summary>
         ///     Check if genre name is contained in the genre template
@@ -89,6 +86,7 @@ namespace MusicManagerCurrent.Classes
 
                 break;
             }
+
             return true;
         }
 
@@ -137,7 +135,5 @@ namespace MusicManagerCurrent.Classes
         {
             return LocalDirectory;
         }
-
-        #endregion Methods Public
     }
 }

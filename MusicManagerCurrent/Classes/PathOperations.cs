@@ -1,32 +1,41 @@
-#region copyright
-
-// Copyright (c) 2016 art2m Author: art2m <art2m@live.com> // This program is
-// free software: you can redistribute it and/or modify it under the terms of the
-// GNU General Public License as published by the Free Software Foundation,
-// either version 3 of the License, or (at your option) any later version. //
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-// // You should have received a copy of the GNU General Public License along
-// with this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion copyright
+// MusicManagerCurrent
+// 
+// PathOperations.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.IO;
 using System.Text;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Classes
 {
     /// <summary>
-    /// Path operations.
+    ///     Path operations.
     /// </summary>
     public class PathOperations
     {
-        #region METODS PUBLIC
-
         /// <summary>
-        /// used to get first directory name after string reversal.
+        ///     used to get first directory name after string reversal.
         /// </summary>
         /// <param name="itemPath"></param>
         /// <returns>first directory name in reverse.</returns>
@@ -43,16 +52,13 @@ namespace MusicManagerCurrent.Classes
             var index = itemPath.IndexOf(Path.DirectorySeparatorChar);
             var sb = new StringBuilder();
 
-            for (var i = 0; i < index; i++)
-            {
-                sb.Append(itemPath[i]);
-            }
+            for (var i = 0; i < index; i++) sb.Append(itemPath[i]);
 
             return sb.ToString();
         }
 
         /// <summary>
-        /// Reverse the string order used for finding the last directory name.
+        ///     Reverse the string order used for finding the last directory name.
         /// </summary>
         /// <param name="itemPath"></param>
         /// <returns>The reverse of the string passed into it.</returns>
@@ -76,11 +82,11 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Splits the original song path by getting parent.
+        ///     Splits the original song path by getting parent.
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if original song path by getting parent was split,
-        /// <c>false</c> otherwise.
+        ///     <c>true</c>, if original song path by getting parent was split,
+        ///     <c>false</c> otherwise.
         /// </returns>
         /// <param name="songPath">Song path.</param>
         /// <exception cref="FileNotFoundException"></exception>
@@ -172,15 +178,11 @@ namespace MusicManagerCurrent.Classes
             return val;
         }
 
-        #endregion METODS PUBLIC
-
-        #region METHODS PRIVATE
-
         /// <summary>
-        /// Compares the name of the genre name to current directory. Check to
-        /// see if the current directory matches the genre directory name. Some
-        /// multiple artist Cd's do not have artist directory. Compare to keep
-        /// from using genre name as artist name.
+        ///     Compares the name of the genre name to current directory. Check to
+        ///     see if the current directory matches the genre directory name. Some
+        ///     multiple artist Cd's do not have artist directory. Compare to keep
+        ///     from using genre name as artist name.
         /// </summary>
         /// <returns>True if valid artist directory name else false.</returns>
         /// <param name="directoryName">Directory name.</param>
@@ -200,15 +202,10 @@ namespace MusicManagerCurrent.Classes
                     GenreDirectoryNamesUsersCollection.GetItemAt(i), directoryName,
                     StringComparison.CurrentCultureIgnoreCase);
 
-                if (comp == 0)
-                {
-                    return true;
-                }
+                if (comp == 0) return true;
             }
 
             return false;
         }
-
-        #endregion METHODS PRIVATE
     }
 }

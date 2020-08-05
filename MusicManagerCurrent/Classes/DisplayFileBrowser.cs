@@ -1,28 +1,33 @@
-#region Copyright
-
-// clsFileBrowser.cs
-//
-// Author: art2m <art2m@live.com>
-//
-// Copyright (c) 2011 art2m
-//
-// This program is free software: you can redistribute it and/or modify it under
-// the terms of the GNU General Public License as published by the Free Software
-// Foundation, either version 3 of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along with
-// this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion Copyright
+// MusicManagerCurrent
+// 
+// DisplayFileBrowser.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using MusicManagerCurrent.ClassesProperties;
+using MusicManagerCurrent.Collections;
 
 namespace MusicManagerCurrent.Classes
 {
@@ -34,8 +39,6 @@ namespace MusicManagerCurrent.Classes
     /// </summary>
     public static class DisplayFileBrowser
     {
-        #region METHODS PUBLIC
-
         /// <summary>
         ///     Check for # sign to see if this is a valid genre directory.
         /// </summary>
@@ -82,6 +85,7 @@ namespace MusicManagerCurrent.Classes
                             sw.WriteLine(GenreDefaultListCollection.GetItemAt(i));
                         }
                     }
+
                     retVal = sfd.FileName;
                 }
                 else
@@ -282,6 +286,7 @@ namespace MusicManagerCurrent.Classes
                     UserEnviormentInfoProperties.UserHomeDirectoryPath = fdb.SelectedPath;
                     return fdb.SelectedPath;
                 }
+
                 return string.Empty;
             }
         }
@@ -296,7 +301,7 @@ namespace MusicManagerCurrent.Classes
                 MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
                 var validate = false;
-                
+
                 GenreDefaultListCollection.ClearCollection();
 
                 using (var ofd = new OpenFileDialog())
@@ -311,23 +316,20 @@ namespace MusicManagerCurrent.Classes
                         {
                             string genreName;
                             while ((genreName = sr.ReadLine()) != null)
-                            {
                                 if (!validate)
                                 {
                                     validate = CheckForValidGenreName(genreName);
                                 }
                                 else
                                 {
-                                    if (!string.IsNullOrEmpty(genreName)) 
+                                    if (!string.IsNullOrEmpty(genreName))
                                         GenreDefaultListCollection.AddItem(genreName);
                                 }
-                                
-                            }
                         }
                 }
 
                 if (GenreDefaultListCollection.ItemCount() <= 0) return;
-                
+
                 MyMessages.QuestionMessage = "This will overwrite your current genre default list."
                                              + " Do you wish to continue.";
                 var result = MyMessages.ShowQuestionMessage(MyMessages.QuestionMessage, MyMessages.NameOfClass);
@@ -346,7 +348,5 @@ namespace MusicManagerCurrent.Classes
                     MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage, ex.Message);
             }
         }
-
-        #endregion METHODS PUBLIC
     }
 }

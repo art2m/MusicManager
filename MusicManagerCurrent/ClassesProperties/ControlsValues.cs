@@ -1,12 +1,12 @@
-// BookListCurrent
+// MusicManagerCurrent
 // 
 // ControlsValues.cs
 // 
-// art2m
+// Arthur Melanson
 // 
 // art2m
 // 
-// 07    16   2020
+// 08    04   2020
 // 
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-namespace BookListCurrent.ClassesProperties
+namespace MusicManagerCurrent.ClassesProperties
 {
     /// <summary>
     ///     Default property values for controls. Location and Size.
@@ -44,6 +44,8 @@ namespace BookListCurrent.ClassesProperties
         private const int TopButtonSpace = 30;
         private const int WinHeight = 600;
         private const int WinWidth = 800;
+        private const int LblHeight = 34;
+        private const int TxtHeight = 40;
 
         /// <summary>
         ///     Height of all buttons.
@@ -123,5 +125,9 @@ namespace BookListCurrent.ClassesProperties
         ///     Sets the default window width.
         /// </summary>
         public static int MyWindowWidth => WinWidth;
+
+        public static int MyLabelHeight => LblHeight;
+
+        public static int MyTextHeight => TxtHeight;
     }
 }

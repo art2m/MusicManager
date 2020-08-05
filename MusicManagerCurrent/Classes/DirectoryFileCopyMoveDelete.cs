@@ -1,6 +1,26 @@
-﻿#region Copyright
-
+﻿// MusicManagerCurrent
+// 
 // DirectoryFileCopyMoveDelete.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 // Copyright (c) 2016 art2m Author: art2m <art2m@live.com>
 //
@@ -15,12 +35,11 @@
 // You should have received a copy of the GNU General Public License along with
 // this program. If not, see <http://www.gnu.org/licenses/>.
 
-#endregion Copyright
-
 using System;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Classes
 {
@@ -29,8 +48,6 @@ namespace MusicManagerCurrent.Classes
     /// </summary>
     public class DirectoryFileCopyMoveDelete
     {
-        #region Constructors
-
         /// <summary>
         ///     Initializes
         /// </summary>
@@ -39,10 +56,6 @@ namespace MusicManagerCurrent.Classes
             var declaringType = MethodBase.GetCurrentMethod().DeclaringType;
             if (declaringType != null) MyMessages.NameOfClass = declaringType.Name;
         }
-
-        #endregion Constructors
-
-        #region Methods Public
 
         /// <summary>
         ///     Copy file from source to destination.
@@ -452,11 +465,13 @@ namespace MusicManagerCurrent.Classes
                 if (Directory.Exists(destDir))
                 {
                     MyMessages.QuestionMessage = "A destination directory with this name all ready exists: " + destDir
-                                                 + " Do you wish to delete it?";
+                                                                                                             + " Do you wish to delete it?";
 
                     var result = MyMessages.ShowQuestionMessageBox();
 
-                    if (result == DialogResult.Yes) if (!DeleteDirectory(destDir)) throw new IOException();
+                    if (result == DialogResult.Yes)
+                        if (!DeleteDirectory(destDir))
+                            throw new IOException();
                 }
 
                 Directory.Move(sourceDir, destDir);
@@ -605,7 +620,5 @@ namespace MusicManagerCurrent.Classes
                 return false;
             }
         }
-
-        #endregion Methods Public
     }
 }

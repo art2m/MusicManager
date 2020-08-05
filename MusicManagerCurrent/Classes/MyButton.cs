@@ -1,6 +1,6 @@
 ﻿// MusicManagerCurrent
 // 
-// Program.cs
+// MyButton.cs
 // 
 // Arthur Melanson
 // 
@@ -22,23 +22,32 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-using System;
+using System.Drawing;
 using System.Windows.Forms;
-using MusicManagerCurrent.Sources;
 
-namespace MusicManagerCurrent
+namespace MusicManagerCurrent.Classes
 {
-    internal static class Program
+    /// <summary>
+    ///     Button class.
+    /// </summary>
+    internal sealed class MyButton : Button
     {
-        /// <summary>
-        ///     The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        private static void Main()
+        /// <summary>Initializes a new instance of the <see cref="MyButton" /> class.</summary>
+        public MyButton()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MusicManagerWin());
+            BackColor = Color.LightSteelBlue;
+
+            Font = new Font(SystemFonts.DialogFont.FontFamily, 11.25F, FontStyle.Bold, GraphicsUnit.Point);
         }
+
+        /// <summary>Gets or sets the background color of the control.</summary>
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set => base.BackColor = value;
+        }
+
+        /// <summary>Gets the default size of the control.</summary>
+        protected override Size DefaultSize => new Size(150, 45);
     }
 }

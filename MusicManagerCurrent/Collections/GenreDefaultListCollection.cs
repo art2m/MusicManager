@@ -1,6 +1,26 @@
-﻿#region copyright
-
+﻿// MusicManagerCurrent
+// 
 // GenreDefaultListCollection.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 // Copyright (c) 2016 art2m Author: art2m <art2m@live.com>
 //
@@ -15,30 +35,24 @@
 // You should have received a copy of the GNU General Public License along with
 // this program. If not, see <http://www.gnu.org/licenses/>.
 
-#endregion copyright
-
 using System.Collections.Generic;
+using MusicManagerCurrent.Classes;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Collections
 {
     /// <summary>
-    /// Genre template list collection.
+    ///     Genre template list collection.
     /// </summary>
     public static class GenreDefaultListCollection
     {
-        #region Fields
-
         /// <summary>
-        /// The genre list.
+        ///     The genre list.
         /// </summary>
         private static readonly List<string> GenreList = new List<string>();
 
-        #endregion Fields
-
-        #region Methods Public
-
         /// <summary>
-        /// Add genre name to the collection.
+        ///     Add genre name to the collection.
         /// </summary>
         public static void AddItem(string genreName)
         {
@@ -46,7 +60,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Clears the collection.
+        ///     Clears the collection.
         /// </summary>
         public static void ClearCollection()
         {
@@ -54,7 +68,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Check if genre name is contained in the collection.
+        ///     Check if genre name is contained in the collection.
         /// </summary>
         /// <param name="genreName">Genre directory name.</param>
         /// <returns>True if genre directory name is found else false.</returns>
@@ -64,7 +78,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Get all items contained in the collection.
+        ///     Get all items contained in the collection.
         /// </summary>
         /// <returns>All items in collection.</returns>
         public static string[] GetAllItems()
@@ -84,7 +98,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets the item at index.
+        ///     Gets the item at index.
         /// </summary>
         /// <returns>Item at index.</returns>
         /// <param name="index">Index of item to get.</param>
@@ -94,7 +108,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets the index of the item.
+        ///     Gets the index of the item.
         /// </summary>
         /// <returns>The index of the item.</returns>
         /// <param name="genreName">The genre name.</param>
@@ -104,7 +118,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Count of items.
+        ///     Count of items.
         /// </summary>
         /// <returns>The count.</returns>
         public static int ItemCount()
@@ -113,7 +127,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Remove genre name from the collection.
+        ///     Remove genre name from the collection.
         /// </summary>
         /// <param name="genreName">The name of the genre directory to be remove.</param>
         /// <returns>True if genre name removed else false.</returns>
@@ -123,7 +137,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Removes the item at the specified index.
+        ///     Removes the item at the specified index.
         /// </summary>
         /// <returns>True if item is removed from the collection else false.</returns>
         /// <param name="index">Index of item to be removed.</param>
@@ -140,16 +154,14 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Sorts the collection.
+        ///     Sorts the collection.
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if collection was sorted, <c>false</c> otherwise.
+        ///     <c>true</c>, if collection was sorted, <c>false</c> otherwise.
         /// </returns>
         public static void SortCollection()
         {
             GenreList.Sort();
         }
-
-        #endregion Methods Public
     }
 }

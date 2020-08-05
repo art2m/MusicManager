@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\art2m\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\art2m\AppData\Local\JetBrains\Transient\ReSharperHost\v201\SolutionCaches\_MusicManagerCurrent.-1892327979.00" t="ExcludeRecursive" />
+    <e p="C:\Users\art2m\source\repos\MusicManagerCurrent" t="IncludeFlat">
+      <e p="MusicManagerCurrent" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Classes" t="Include">
+          <e p="ChangeCase.cs" t="Include" />
+          <e p="DirectoryFileCopyMoveDelete.cs" t="Include" />
+          <e p="DisplayFileBrowser.cs" t="Include" />
+          <e p="GenreDirectoryNamesUsersCollection.cs" t="Include" />
+          <e p="GenreFileItems.cs" t="Include" />
+          <e p="GenreFileReadWrite.cs" t="Include" />
+          <e p="MusicDirectoryLoops.cs" t="Include" />
+          <e p="MyButton.cs" t="Include" />
+          <e p="MyMessages.cs" t="Include" />
+          <e p="PathOperations.cs" t="Include" />
+          <e p="PathStateProperties.cs" t="Include" />
+          <e p="RestoreDefaultGenreTemplateList.cs" t="Include" />
+          <e p="SongGetDirectoryFilePaths.cs" t="Include" />
+          <e p="SongRecordProperties.cs" t="Include" />
+          <e p="UserEnviormentInfoProperties.cs" t="Include" />
+          <e p="UserInformation.cs" t="Include" />
+          <e p="UserInformationReadWrite.cs" t="Include" />
+          <e p="ValidateOperations.cs" t="Include" />
+        </e>
+        <e p="ClassesProperties" t="Include">
+          <e p="ControlsValues.cs" t="Include" />
+        </e>
+        <e p="ClassInterface" t="Include">
+          <e p="IMyCollection.cs" t="Include" />
+        </e>
+        <e p="Collections" t="Include">
+          <e p="AlbumDirectoryDictionaryCollection.cs" t="Include" />
+          <e p="AlbumNamesCollection.cs" t="Include" />
+          <e p="ArtistDirectoryDictionaryCollection.cs" t="Include" />
+          <e p="ArtistNamesCollection.cs" t="Include" />
+          <e p="GenreDefaultListCollection.cs" t="Include" />
+          <e p="GenreDirectoriesCollection.cs" t="Include" />
+          <e p="GenreDirectoryNamesUsersCollection.cs" t="Include" />
+          <e p="GenreTemplateListCollection.cs" t="Include" />
+          <e p="NewDirectoryFileNameCollection.cs" t="Include" />
+          <e p="NewDirectoryFilePathsCollection.cs" t="Include" />
+          <e p="OriginalDirectoryFileNamesCollection.cs" t="Include" />
+          <e p="OriginalDirectoryFilePathsCollection.cs" t="Include" />
+          <e p="OriginalSongPathsCollection.cs" t="Include" />
+          <e p="SongsCollection.cs" t="Include" />
+        </e>
+        <e p="MusicManagerCurrent.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Sources" t="Include">
+          <e p="MusicManagerWin.cs" t="Include" />
+          <e p="MusicManagerWin.Designer.cs" t="Include" />
+          <e p="MusicManagerWin.resx" t="Include" />
+        </e>
+      </e>
+      <e p="MusicManagerCurrent.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

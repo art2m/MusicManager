@@ -1,43 +1,47 @@
-﻿// GenreNamesList.cs
-//
-// Author: art2m <art2m@live.com>
-//
-// Copyright (c) 2016 art2m
-//
-// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
-// License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
-// later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
-// implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-// more details.
-//
-// You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+﻿// MusicManagerCurrent
+// 
+// GenreTemplateListCollection.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using MusicManagerCurrent.Classes;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Collections
 {
     /// <summary>
-    /// Genre template list collection.
+    ///     Genre template list collection.
     /// </summary>
     public static class GenreTemplateListCollection
     {
-        #region GLOBAL VARIABLES
-
         /// <summary>
-        /// The genre list.
+        ///     The genre list.
         /// </summary>
         private static readonly List<string> GenreList = new List<string>();
 
-        #endregion GLOBAL VARIABLES
-
-        #region Methods Public
-
         /// <summary>
-        /// Adds the item.
+        ///     Adds the item.
         /// </summary>
         /// <returns><c>true</c>, if item was added, <c>false</c> otherwise.</returns>
         /// <param name="genreName">Genre name.</param>
@@ -52,13 +56,9 @@ namespace MusicManagerCurrent.Collections
                 MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
                 if (!ContainsItem(genreName))
-                {
                     GenreList.Add(genreName);
-                }
                 else
-                {
-                   return false;
-                }
+                    return false;
 
                 return true;
             }
@@ -83,16 +83,16 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Clears the collection.
+        ///     Clears the collection.
         /// </summary>
         public static void ClearCollection()
         {
             GenreList.Clear();
         }
 
-        
+
         /// <summary>
-        /// Gets all items.
+        ///     Gets all items.
         /// </summary>
         /// <returns>The all items.</returns>
         public static string[] GetAllItems()
@@ -109,16 +109,10 @@ namespace MusicManagerCurrent.Collections
                 var intCount = GenreList.Count;
 
                 // No genre Folders Found
-                if ((intCount - 1) < 1)
-                {
-                    return new string[0];
-                }
+                if (intCount - 1 < 1) return new string[0];
 
                 genreNames = new string[intCount];
-                for (var i = 0; i < intCount; i++)
-                {
-                    genreNames[i] = GenreList[i];
-                }
+                for (var i = 0; i < intCount; i++) genreNames[i] = GenreList[i];
 
                 // All OK.
                 return genreNames;
@@ -140,9 +134,9 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets the item at index.
+        ///     Gets the item at index.
         /// </summary>
-        /// <returns>The <see cref="System.String"/>.</returns>
+        /// <returns>The <see cref="System.String" />.</returns>
         /// <param name="index">Index of item to get.</param>
         public static string GetItemAt(int index)
         {
@@ -173,7 +167,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Gets the index of the item.
+        ///     Gets the index of the item.
         /// </summary>
         /// <returns>The item index.</returns>
         /// <param name="genreName">Genre name.</param>
@@ -214,9 +208,9 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Inserts the item at position and item.
+        ///     Inserts the item at position and item.
         /// </summary>
-        /// <returns>The <see cref="System.Boolean"/>.</returns>
+        /// <returns>The <see cref="System.Boolean" />.</returns>
         /// <param name="pos">Position.</param>
         /// <param name="item">Item to be inserted.</param>
         public static bool InsertItemAt(int pos, string item)
@@ -254,13 +248,16 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Count of items.
+        ///     Count of items.
         /// </summary>
         /// <returns>The count.</returns>
-        public static int ItemCount() => GenreList.Count;
+        public static int ItemCount()
+        {
+            return GenreList.Count;
+        }
 
         /// <summary>
-        /// Removes the item.
+        ///     Removes the item.
         /// </summary>
         /// <returns><c>true</c>, if item was removed, <c>false</c> otherwise.</returns>
         /// <param name="genreName">Genre name.</param>
@@ -299,9 +296,9 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Removes the item at index.
+        ///     Removes the item at index.
         /// </summary>
-        /// <returns>The <see cref="System.Boolean"/>.</returns>
+        /// <returns>The <see cref="System.Boolean" />.</returns>
         /// <param name="index">Index of item to remove.</param>
         public static bool RemoveItemAt(int index)
         {
@@ -338,7 +335,7 @@ namespace MusicManagerCurrent.Collections
         }
 
         /// <summary>
-        /// Sorts the collection.
+        ///     Sorts the collection.
         /// </summary>
         /// <returns><c>true</c>, if collection was sorted, <c>false</c> otherwise.</returns>
         public static bool SortCollection()
@@ -364,18 +361,13 @@ namespace MusicManagerCurrent.Collections
             }
         }
 
-        #endregion Method Public
-
-        #region Method Private
-
         /// <summary>
-        /// Contains the item.
+        ///     Contains the item.
         /// </summary>
         /// <returns><c>true</c>, if item was contained, <c>false</c> otherwise.</returns>
         /// <param name="genreName">Genre name.</param>
         private static bool ContainsItem(string genreName)
         {
-            
             try
             {
                 var declaringType = MethodBase.GetCurrentMethod().DeclaringType;
@@ -395,9 +387,6 @@ namespace MusicManagerCurrent.Collections
                     ex.Message);
                 return false;
             }
-
-            #endregion Method Private
         }
-
     }
 }

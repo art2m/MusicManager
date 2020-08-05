@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="416da927-9349-492d-8457-e09048d6ac3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/App.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/ChangeCase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/DirectoryFileCopyMoveDelete.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/DisplayFileBrowser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/GenreDirectoryNamesUsersCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/GenreFileItems.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/GenreFileReadWrite.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/MusicDirectoryLoops.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/MyMessages.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/PathOperations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/PathStateProperties.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/RestoreDefaultGenreTemplateList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/SongGetDirectoryFilePaths.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/SongRecordProperties.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/UserEnviormentInfoProperties.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/UserInformation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/UserInformationReadWrite.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Classes/ValidateOperations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/ClassesProperties/ControlsValues.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/AlbumDirectoryDictionaryCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/AlbumNamesCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/ArtistDirectoryDictionaryCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/ArtistNamesCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDefaultListCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDirectoriesCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDirectoryNamesUsersCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreTemplateListCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/NewDirectoryFileNameCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/NewDirectoryFilePathsCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalDirectoryFileNamesCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalDirectoryFilePathsCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalSongPathsCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Collections/SongsCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/MusicManagerCurrent.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Properties/Resources.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Properties/Resources.resx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Properties/Settings.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Properties/Settings.settings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Sources/MusicManagerWin.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MusicManagerCurrent/Sources/MusicManagerWin.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/UserInformation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/UserEnviormentInfoProperties.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/SongsCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/ValidateOperations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/6FF151C8-A24F-45E5-B6E3-6BC715719162/13/c2d3c029/Control.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Sources/MusicManagerWin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Sources/MusicManagerWin.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/ClassesProperties/ControlsValues.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/AlbumDirectoryDictionaryCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/GenreFileItems.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/UserInformationReadWrite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalDirectoryFilePathsCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalDirectoryFileNamesCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/NewDirectoryFilePathsCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/NewDirectoryFileNameCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreTemplateListCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDirectoryNamesUsersCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDirectoriesCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDefaultListCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/ChangeCase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/ArtistNamesCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalSongPathsCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/DisplayFileBrowser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/SongGetDirectoryFilePaths.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/RestoreDefaultGenreTemplateList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/GenreFileReadWrite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Classes/MusicDirectoryLoops.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MusicManagerCurrent/Collections/AlbumNamesCollection.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/MusicManagerWin.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/ValidateOperations.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/SongsCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/AlbumNamesCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/MusicDirectoryLoops.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/GenreFileReadWrite.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/RestoreDefaultGenreTemplateList.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/SongGetDirectoryFilePaths.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/DisplayFileBrowser.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalSongPathsCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/ArtistNamesCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/ChangeCase.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDefaultListCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDirectoriesCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreDirectoryNamesUsersCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/GenreTemplateListCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/NewDirectoryFileNameCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/NewDirectoryFilePathsCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalDirectoryFileNamesCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Collections/OriginalDirectoryFilePathsCollection.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/UserInformationReadWrite.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Classes/GenreFileItems.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Sources/MusicManagerWin.MusicManagerWin.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/ClassesProperties/ControlsValues.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Sources/MusicManagerWin.Controls.cs" />
+        <option value="$PROJECT_DIR$/MusicManagerCurrent/Sources/MusicManagerWin.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1fb5Xyrm7zUdYchepvsJr5eBkvJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35008192" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29983616" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MusicManagerCurrent" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/MusicManagerCurrent/MusicManagerCurrent.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="416da927-9349-492d-8457-e09048d6ac3e" name="Default Changelist" comment="" />
+      <created>1596473994567</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596473994567</updated>
+      <workItem from="1596473998161" duration="899000" />
+      <workItem from="1596474964938" duration="11693000" />
+      <workItem from="1596486974412" duration="18000" />
+      <workItem from="1596487009574" duration="105000" />
+      <workItem from="1596544020538" duration="814000" />
+      <workItem from="1596550034921" duration="5000" />
+      <workItem from="1596570455762" duration="131000" />
+      <workItem from="1596571463885" duration="1196000" />
+      <workItem from="1596578306219" duration="1301000" />
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="645" y="350" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1596571842649">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="645" y="350" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1080@0.0.1920.1080" timestamp="1596571842649" />
+    <state width="1862" height="386" key="GridCell.Tab.0.bottom" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.0.center" timestamp="1596579274537">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274537" />
+    <state width="1862" height="386" key="GridCell.Tab.0.left" timestamp="1596579274537">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274537" />
+    <state width="1862" height="386" key="GridCell.Tab.0.right" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.1.bottom" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.1.center" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.1.left" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.1.right" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.2.bottom" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.2.center" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.2.left" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.2.right" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.3.bottom" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.3.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.3.center" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.3.center/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.3.left" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.3.left/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.3.right" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.4.bottom" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.4.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.4.center" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.4.center/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.4.left" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.4.left/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state width="1862" height="386" key="GridCell.Tab.4.right" timestamp="1596579274538">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1862" height="386" key="GridCell.Tab.4.right/0.0.1920.1080@0.0.1920.1080" timestamp="1596579274538" />
+    <state x="381" y="98" key="SettingsEditor" timestamp="1596481014961">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="381" y="98" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1596481014961" />
+  </component>
+</project>

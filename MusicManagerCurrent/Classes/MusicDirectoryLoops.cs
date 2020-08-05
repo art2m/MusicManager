@@ -1,51 +1,57 @@
-﻿// MusicDirectoryLoops.cs // Author: art2m <art2m@live.com> // Copyright (c) 2016
-// art2m // This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by the Free
-// Software Foundation, either version 3 of the License, or (at your option) any
-// later version. // This program is distributed in the hope that it will be
-// useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-// Public License for more details. // You should have received a copy of the GNU
-// General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
+﻿// MusicManagerCurrent
+// 
+// MusicDirectoryLoops.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.IO;
 using System.Reflection;
+using MusicManagerCurrent.ClassesProperties;
+using MusicManagerCurrent.Collections;
 
 namespace MusicManagerCurrent.Classes
 {
     /// <summary>
-    /// Music directory loops. This class contains all music directory and file
-    /// loops. There are list directories or files loops, search directories or
-    /// file loops.
+    ///     Music directory loops. This class contains all music directory and file
+    ///     loops. There are list directories or files loops, search directories or
+    ///     file loops.
     /// </summary>
     public class MusicDirectoryLoops
     {
-        
         //TODO - Possibly may not need to use this class so check for removal often.
-        #region Fields
 
-        private bool loadAllSongs = false;
-        private bool loadGenreWorkingDirectory = false;
-
-        #endregion Fields
-
-        #region Constructors
+        private bool loadAllSongs;
+        private bool loadGenreWorkingDirectory;
 
         /// <summary>
-        /// Initialize
+        ///     Initialize
         /// </summary>
         public MusicDirectoryLoops()
         {
             MyMessages.NameOfClass = MethodBase.GetCurrentMethod().DeclaringType.Name;
         }
 
-        #endregion Constructors
-
-        #region Methods
-
         /// <summary>
-        /// Get all song paths from user top level music directory.
+        ///     Get all song paths from user top level music directory.
         /// </summary>
         public void GetAllSongPaths()
         {
@@ -54,12 +60,12 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Loads all songs loop. This loop will step threw the top level music
-        /// directory and all sub directories looking for any .mp3 song files. It
-        /// then calls
+        ///     Loads all songs loop. This loop will step threw the top level music
+        ///     directory and all sub directories looking for any .mp3 song files. It
+        ///     then calls
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if all songs loop was loaded, <c>false</c> otherwise.
+        ///     <c>true</c>, if all songs loop was loaded, <c>false</c> otherwise.
         /// </returns>
         /// <param name="topDirectoryPath">Top directory path.</param>
         public bool LoadAllSongsLoop(string topDirectoryPath)
@@ -77,14 +83,11 @@ namespace MusicManagerCurrent.Classes
                 retVal = CheckDirectoryForFiles(topDirectoryPath);
 
                 // Check for mp3 files in sub directories.
-                foreach (string directoryPath in Directory.GetDirectories(topDirectoryPath))
+                foreach (var directoryPath in Directory.GetDirectories(topDirectoryPath))
                 {
                     retVal = CheckDirectoryForFiles(directoryPath);
 
-                    if (!retVal)
-                    {
-                        LoadAllSongsLoop(directoryPath);
-                    }
+                    if (!retVal) LoadAllSongsLoop(directoryPath);
                 }
 
                 return retVal;
@@ -109,13 +112,13 @@ namespace MusicManagerCurrent.Classes
             catch (IOException ex)
             {
                 MyMessages.BuildErrorString(MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage,
-                     ex.Message);
+                    ex.Message);
                 return retVal;
             }
         }
 
         /// <summary>
-        /// Load all songs found in this genre directory.
+        ///     Load all songs found in this genre directory.
         /// </summary>
         /// <param name="genreDirectoryPath"></param>
         /// <returns></returns>
@@ -129,14 +132,11 @@ namespace MusicManagerCurrent.Classes
             // Check for song files in the top directory.
             var retVal = CheckDirectoryForFiles(genreDirectoryPath);
 
-            foreach (string genreDirectory in Directory.GetDirectories(genreDirectoryPath))
+            foreach (var genreDirectory in Directory.GetDirectories(genreDirectoryPath))
             {
                 retVal = CheckDirectoryForFiles(genreDirectory);
 
-                if (!retVal)
-                {
-                    LoadGenreWorkingDirectorySongFiles(genreDirectory);
-                }
+                if (!retVal) LoadGenreWorkingDirectorySongFiles(genreDirectory);
             }
 
             // All OK
@@ -145,27 +145,18 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Start searching for genre directory songs.
+        ///     Start searching for genre directory songs.
         /// </summary>
         public void StartGenreWorkingDirectorySongFilesLoop()
         {
-           //TODO remove comment lines.  var retVal = LoadAllSongsLoop(PlaylistInfoProperties.WorkingPlaylistSourcePath);
-
-            if (retVal)
-            {
-                // test
-            }
-            else
-            {
-                // test
-            }
+            //TODO remove comment lines.  var retVal = LoadAllSongsLoop(PlaylistInfoProperties.WorkingPlaylistSourcePath);
         }
 
         /// <summary>
-        /// Checks the directory for files.
+        ///     Checks the directory for files.
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if directory for files was checked, <c>false</c> otherwise.
+        ///     <c>true</c>, if directory for files was checked, <c>false</c> otherwise.
         /// </returns>
         /// <param name="directoryPath">Directory path.</param>
         private bool CheckDirectoryForFiles(string directoryPath)
@@ -179,10 +170,7 @@ namespace MusicManagerCurrent.Classes
 
                 var pathLength = getPaths.Length;
 
-                if (pathLength > 0)
-                {
-                    retVal = FillCollectionWithSongs(getPaths);
-                }
+                if (pathLength > 0) retVal = FillCollectionWithSongs(getPaths);
 
                 // Return false no files found;
                 return retVal;
@@ -217,11 +205,11 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Fills the collection with songs. Add all of the songs found in the
-        /// users music collection to SongsCollection class.
+        ///     Fills the collection with songs. Add all of the songs found in the
+        ///     users music collection to SongsCollection class.
         /// </summary>
         /// <returns>
-        /// <c>true</c>, if collection with songs was filled, <c>false</c> otherwise.
+        ///     <c>true</c>, if collection with songs was filled, <c>false</c> otherwise.
         /// </returns>
         /// <param name="songPaths">Song paths.</param>
         private bool FillCollectionWithSongs(string[] songPaths)
@@ -232,7 +220,7 @@ namespace MusicManagerCurrent.Classes
             {
                 MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
-                foreach (string songPath in songPaths)
+                foreach (var songPath in songPaths)
                 {
                     songPathNotFound = songPath;
                     var compMp3 = -1;
@@ -251,10 +239,7 @@ namespace MusicManagerCurrent.Classes
                             MyMessages.ShowErrorMessage(MyMessages.ErrorMessage, MyMessages.NameOfClass);
                         }
 
-                        if (loadAllSongs)
-                        {
-                            SongsCollection.AddItem(songPath);
-                        }
+                        if (loadAllSongs) SongsCollection.AddItem(songPath);
                     }
                     else if (loadGenreWorkingDirectory)
                     {
@@ -277,7 +262,5 @@ namespace MusicManagerCurrent.Classes
                 return retVal;
             }
         }
-
-        #endregion Methods
     }
 }

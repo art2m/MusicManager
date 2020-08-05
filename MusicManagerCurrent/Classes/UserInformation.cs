@@ -1,86 +1,130 @@
-﻿#region Copyright
-
+﻿// MusicManagerCurrent
+// 
 // UserInformation.cs
-//
-// Author: art2m <art2m@live.com>
-//
-// Copyright (c) 2011 art2m
-//
-// This program is free software: you can redistribute it and/or modify it under
-// the terms of the GNU General Public License as published by the Free Software
-// Foundation, either version 3 of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful, but WITHOUT
-// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-// FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along with
-// this program. If not, see <http://www.gnu.org/licenses/>.
-
-#endregion Copyright
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using BookListCurrent.Classes;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Classes
 {
     /// <summary>
-    ///     Holds the home path and name, music directory name and path and user name.
+    ///     Holds the home path and name, music directory name and path and user
+    ///     name.
     /// </summary>
-    public static class UserInformation
+    public class UserInformation
     {
-        #region Methods Public
+        /// <summary>
+        /// The message box object decleration.
+        /// </summary>
+        private readonly MyMessageBox _msgBox = new MyMessageBox();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserInformation"/> class.
+        /// </summary>
+        public UserInformation()
+        {
+            var declaringType = MethodBase.GetCurrentMethod().DeclaringType;
+            if (declaringType != null) _msgBox.NameOfClass = declaringType.Name;
+        }
+
+        /// <summary>
+        ///     Locates the default music directory.
+        /// </summary>
+        /// <returns>
+        ///     path string to default windows directory else empty string.
+        /// </returns>
+        public string LocateDefaultMusicDirectory()
+        {
+            var retVal = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+
+            var validate = new ValidationClass();
+
+            if (!validate.ValidateDirectoryExists(retVal)) retVal = string.Empty;
+
+            SongRecordProperties.MusicDirectoryPath = retVal;
+            SongRecordProperties.MusicDirectoryName =
+                new DirectoryInfo(UserEnviormentInfoProperties.UserMusicDirectoryPath).Name;
+
+            return retVal;
+        }
+
 
         /// <summary>
         ///     Display dialog browser for user to locate top level music directory.
         /// </summary>
-        /// <returns></returns>
-        public static void FindMusicDirectoryBrowser()
+        /// <returns>
+        /// </returns>
+        public string FindMusicDirectoryBrowser()
         {
+            _msgBox.NameOfMethod = MethodBase.GetCurrentMethod().Name;
+
             var musicDirectory = DisplayFileBrowser.SelectToplevelMusicDirectory();
+            var validate = new ValidationClass();
 
-            if (string.IsNullOrEmpty(musicDirectory))
-            {
-                MyMessages.InformationMessage = "You need to set your music directory.";
-                MyMessages.ShowInformationMessageBox();
-            }
-            else
-            {
-                var retVal = ValidateOperations.ValidateMusicDirectory(musicDirectory);
 
-                if (retVal)
-                {
-                    SongRecordProperties.MusicDirectoryPath = UserEnviormentInfoProperties.UserMusicDirectoryPath;
-                    SongRecordProperties.MusicDirectoryName =
-                        new DirectoryInfo(UserEnviormentInfoProperties.UserMusicDirectoryPath).Name;
-                }
-                else
-                {
-                    MyMessages.ErrorMessage = "Found no music files in this directory. Use browser"
-                                              + Environment.NewLine + "to select your music directory.";
-                    MyMessages.ShowErrorMessageBox();
-                }
+            if (!validate.ValidateStringIsNotNull(musicDirectory))
+            {
+                _msgBox.Msg = "You need to set your music directory.";
+                _msgBox.ShowInformationMessageBox();
+
+                return string.Empty;
             }
+
+            var retVal = validate.ValidateDirectoryExists(musicDirectory);
+
+            if (retVal)
+            {
+                SongRecordProperties.MusicDirectoryPath = UserEnviormentInfoProperties.UserMusicDirectoryPath;
+                SongRecordProperties.MusicDirectoryName =
+                    new DirectoryInfo(UserEnviormentInfoProperties.UserMusicDirectoryPath).Name;
+
+                return musicDirectory;
+            }
+
+            _msgBox.Msg = "Found no music files in this directory. Use browser"
+                          + Environment.NewLine + "to select your music directory.";
+            _msgBox.ShowErrorMessageBox();
+            return string.Empty;
         }
 
         /// <summary>
         ///     Finds the user default home directory.
         /// </summary>
+        /// <exception cref="DirectoryNotFoundException" />
         /// <returns>
-        ///     <c>true</c>, if user default home directory was found, <c>false</c> otherwise.
+        ///     <c>true</c> , if user default home directory was found, <c>false</c>
+        ///     otherwise.
         /// </returns>
-        /// <exception cref="DirectoryNotFoundException"></exception>
-        public static bool FindUserHomeDirectory()
+        public bool FindUserHomeDirectory()
         {
             try
             {
-                var declaringType = MethodBase.GetCurrentMethod().DeclaringType;
-                if (declaringType != null) MyMessages.NameOfClass = declaringType.Name;
-
-                MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
+                _msgBox.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
                 UserEnviormentInfoProperties.UserHomeDirectoryPath =
                     Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -94,10 +138,9 @@ namespace MusicManagerCurrent.Classes
             }
             catch (DirectoryNotFoundException ex)
             {
-                MyMessages.ErrorMessage = "Unable to locate your home directory. "
-                                          + "You will need to click on Set location menu and select home to set this.";
-                MyMessages.BuildErrorString(
-                    MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage, ex.Message);
+                _msgBox.Msg = "Unable to locate your home directory. "
+                              + "You will need to click on Set location menu and select home to set this.";
+                _msgBox.ShowErrorMessageBox();
 
                 return false;
             }
@@ -106,59 +149,55 @@ namespace MusicManagerCurrent.Classes
         /// <summary>
         ///     Display file browser for user to find home directory.
         /// </summary>
-        /// <exception cref="DirectoryNotFoundException"></exception>
-        public static void FindUserHomeDirectoryBrowser()
+        /// <exception cref="DirectoryNotFoundException" />
+        public void FindUserHomeDirectoryBrowser()
         {
-            try
-            {
-                var home = DisplayFileBrowser.SelectUserHomeDirectory();
+            var validate = new ValidationClass();
 
-                if (string.IsNullOrEmpty(home)
-                    || !Directory.Exists(home)) throw new DirectoryNotFoundException();
+            var home = DisplayFileBrowser.SelectUserHomeDirectory();
 
-                UserEnviormentInfoProperties.UserHomeDirectoryPath = home;
-            }
-            catch (DirectoryNotFoundException ex)
+            if (!validate.ValidateStringIsNotNull(home) || !validate.ValidateStringHasLength(home))
             {
-                MyMessages.ErrorMessage = "Unable to locate your home directory. "
-                                          + "You will need to click on Set location menu and select home to set this.";
-                MyMessages.BuildErrorString(
-                    MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage, ex.Message);
+                _msgBox.Msg = "Unable to locate your home directory. "
+                              + "You will need to click on Set location menu and select home to set this.";
+                _msgBox.ShowErrorMessageBox();
             }
+
+
+            UserEnviormentInfoProperties.UserHomeDirectoryPath = home;
         }
 
         /// <summary>
         ///     Finds the name of the user.
         /// </summary>
-        /// <returns><c>true</c>, if user name was found, <c>false</c> otherwise.</returns>
-        public static bool FindUserName()
+        /// <returns>
+        ///     <c>true</c> , if user name was found, <c>false</c> otherwise.
+        /// </returns>
+        public bool FindUserName()
         {
-            var declaringType = MethodBase.GetCurrentMethod().DeclaringType;
-            if (declaringType != null) MyMessages.NameOfClass = declaringType.Name;
 
-            MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
+            _msgBox.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
             UserEnviormentInfoProperties.UserName = Environment.UserName;
 
-            return string.IsNullOrEmpty(UserEnviormentInfoProperties.UserName);
+            var validate = new ValidationClass();
+
+            return validate.ValidateStringIsNotNull(UserEnviormentInfoProperties.UserName);
         }
 
         /// <summary>
         ///     Find users default music directory.
         /// </summary>
+        /// <exception cref="DirectoryNotFoundException" />
         /// <returns>
-        ///     <c>true</c>, if user top-level music directory was found,
+        ///     <c>true</c> , if user top-level music directory was found,
         ///     <c>false</c> otherwise.
         /// </returns>
-        /// <exception cref="DirectoryNotFoundException"></exception>
-        public static bool FindUserToplevelMusicDirectory()
+        public bool FindUserTopLevelMusicDirectory()
         {
             try
             {
-                var declaringType = MethodBase.GetCurrentMethod().DeclaringType;
-                if (declaringType != null) MyMessages.NameOfClass = declaringType.Name;
-
-                MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
+                _msgBox.NameOfMethod = MethodBase.GetCurrentMethod().Name;
 
                 UserEnviormentInfoProperties.UserMusicDirectoryPath =
                     Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
@@ -181,55 +220,11 @@ namespace MusicManagerCurrent.Classes
             }
             catch (DirectoryNotFoundException ex)
             {
-                MyMessages.ErrorMessage = "Unable to locate your home directory. "
+                _msgBox.Msg = "Unable to locate your home directory. "
                                           + "You will need to click on Set location menu and select home to set this.";
-                MyMessages.BuildErrorString(
-                    MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage, ex.Message);
+                _msgBox.ShowErrorMessageBox();
                 return false;
             }
         }
-
-        /// <summary>
-        ///     See if users top-level music directory is the default. if not then
-        ///     move on to other ways.
-        /// </summary>
-        public static bool LocateUserToplevelMusicDirectory()
-        {
-            //var retVal = true;
-
-            var declaringType = MethodBase.GetCurrentMethod().DeclaringType;
-            if (declaringType != null) MyMessages.NameOfClass = declaringType.Name;
-
-            MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
-
-            var sb = new StringBuilder();
-
-            sb.Append("Is your music located in the default Music directory. Such as: /home/user/Music");
-            MyMessages.QuestionMessage = sb.ToString();
-
-            var ans = MyMessages.ShowQuestionMessageBox();
-
-            if (DialogResult.Yes == ans)
-                if (!FindUserToplevelMusicDirectory())
-                {
-                    MyMessages.ErrorMessage = "Found no music files in this directory. Use browser"
-                                              + Environment.NewLine + "to select your music directory.";
-                    MyMessages.ShowErrorMessageBox();
-                    return false;
-                }
-
-
-            if (!ValidateOperations.ValidateMusicDirectory(UserEnviormentInfoProperties.UserMusicDirectoryPath))
-                return false;
-
-
-            SongRecordProperties.MusicDirectoryPath = UserEnviormentInfoProperties.UserMusicDirectoryPath;
-            SongRecordProperties.MusicDirectoryName =
-                new DirectoryInfo(UserEnviormentInfoProperties.UserMusicDirectoryPath).Name;
-
-            return true;
-        }
-
-        #endregion Methods Public
     }
 }

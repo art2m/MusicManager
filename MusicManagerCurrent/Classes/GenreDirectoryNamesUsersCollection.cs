@@ -1,35 +1,46 @@
-﻿// GenreDirectoryNamesUsersCollection.cs // Author: art2m <art2m@live.com> // Copyright (c) 2016 art2m // This
-// program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
-// License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
-// later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
-// License for more details. // You should have received a copy of the GNU General Public License along with this
-// program. If not, see <http://www.gnu.org/licenses/>.
+﻿// MusicManagerCurrent
+// 
+// GenreDirectoryNamesUsersCollection.cs
+// 
+// Arthur Melanson
+// 
+// art2m
+// 
+// 08    04   2020
+// 
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using MusicManagerCurrent.ClassesProperties;
 
 namespace MusicManagerCurrent.Classes
 {
     /// <summary>
-    /// Genre directory names users collection.
+    ///     Genre directory names users collection.
     /// </summary>
     public static class GenreDirectoryNamesUsersCollection
     {
-        #region GLOBAL VARIABLES
-
         /// <summary>
-        /// The genre list.
+        ///     The genre list.
         /// </summary>
         private static readonly List<string> GenreList = new List<string>();
 
-        #endregion GLOBAL VARIABLES
-
-        #region METHODS PUBLIC
-
         /// <summary>
-        /// Adds the Genre directory names to the collection.
+        ///     Adds the Genre directory names to the collection.
         /// </summary>
         /// <returns><c>true</c>, if item was added, <c>false</c> otherwise.</returns>
         /// <param name="genreName">Genre name.</param>
@@ -38,10 +49,7 @@ namespace MusicManagerCurrent.Classes
             var bolRetVal = false;
             try
             {
-                if (!ContainsItem(genreName))
-                {
-                    GenreList.Add(genreName);
-                }
+                if (!ContainsItem(genreName)) GenreList.Add(genreName);
 
                 return bolRetVal = true;
             }
@@ -70,7 +78,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Clears the collection.
+        ///     Clears the collection.
         /// </summary>
         public static void ClearCollection()
         {
@@ -83,12 +91,13 @@ namespace MusicManagerCurrent.Classes
                 MyMessages.ErrorMessage = "Encountered error while clearing the collection.";
                 MyMessages.NameOfClass = MethodBase.GetCurrentMethod().DeclaringType.Name;
                 MyMessages.NameOfMethod = MethodBase.GetCurrentMethod().Name;
-                MyMessages.BuildErrorString(MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage, ex.Message);
+                MyMessages.BuildErrorString(MyMessages.NameOfClass, MyMessages.NameOfMethod, MyMessages.ErrorMessage,
+                    ex.Message);
             }
         }
 
         /// <summary>
-        /// Contains the item.
+        ///     Contains the item.
         /// </summary>
         /// <returns><c>true</c>, if item was contained, <c>false</c> otherwise.</returns>
         /// <param name="genreName">Genre name.</param>
@@ -102,7 +111,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Gets all items from collection.
+        ///     Gets all items from collection.
         /// </summary>
         /// <returns>The all items.</returns>
         public static string[] GetAllItems()
@@ -113,16 +122,10 @@ namespace MusicManagerCurrent.Classes
                 var intCount = GenreList.Count;
 
                 // No genre Folders Found
-                if ((intCount - 1) < 1)
-                {
-                    return genreNames;
-                }
+                if (intCount - 1 < 1) return genreNames;
 
                 genreNames = new string[intCount];
-                for (int i = 0; i < intCount; i++)
-                {
-                    genreNames[i] = GenreList[i];
-                }
+                for (var i = 0; i < intCount; i++) genreNames[i] = GenreList[i];
 
                 // All ok.
                 return genreNames;
@@ -148,9 +151,9 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Gets the item at the index.
+        ///     Gets the item at the index.
         /// </summary>
-        /// <returns>The <see cref="System.String"/>.</returns>
+        /// <returns>The <see cref="System.String" />.</returns>
         /// <param name="index">Index of item to get.</param>
         public static string GetItemAt(int index)
         {
@@ -179,7 +182,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Gets the index of the item.
+        ///     Gets the index of the item.
         /// </summary>
         /// <returns>The item index.</returns>
         /// <param name="genreName">Genre name.</param>
@@ -219,9 +222,9 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Inserts the item at position and item.
+        ///     Inserts the item at position and item.
         /// </summary>
-        /// <returns>The <see cref="System.Boolean"/>.</returns>
+        /// <returns>The <see cref="System.Boolean" />.</returns>
         /// <param name="pos">Position to inset the item at.</param>
         /// <param name="item">Insert the item at this index.</param>
         public static bool InsertItemAt(int pos, string item)
@@ -257,7 +260,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Items the count.
+        ///     Items the count.
         /// </summary>
         /// <returns>The count.</returns>
         public static int ItemCount()
@@ -269,7 +272,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Removes the item.
+        ///     Removes the item.
         /// </summary>
         /// <returns><c>true</c>, if item was removed, <c>false</c> otherwise.</returns>
         /// <param name="genreName">Genre name.</param>
@@ -306,19 +309,16 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Removes the item at index.
+        ///     Removes the item at index.
         /// </summary>
-        /// <returns>The <see cref="System.Boolean"/>.</returns>
+        /// <returns>The <see cref="System.Boolean" />.</returns>
         /// <param name="index">Index-of the item to remove.</param>
         public static bool RemoveItemAt(int index)
         {
             var bolRetVal = false;
             try
             {
-                if (index < 0)
-                {
-                    return bolRetVal = true;
-                }
+                if (index < 0) return bolRetVal = true;
 
                 GenreList.RemoveAt(index);
                 return bolRetVal = true;
@@ -348,7 +348,7 @@ namespace MusicManagerCurrent.Classes
         }
 
         /// <summary>
-        /// Sorts the collection.
+        ///     Sorts the collection.
         /// </summary>
         /// <returns><c>true</c>, if collection was sorted, <c>false</c> otherwise.</returns>
         public static bool SortCollection()
@@ -369,7 +369,5 @@ namespace MusicManagerCurrent.Classes
                 return bolRetVal;
             }
         }
-
-        #endregion METHODS PUBLIC
     }
 }
